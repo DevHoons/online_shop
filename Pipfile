@@ -9,6 +9,8 @@ black = "*"
 
 [packages]
 django = "*"
+pillow = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.8"
