@@ -11,6 +11,7 @@ black = "*"
 django = "*"
 pillow = "*"
 mysqlclient = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"
