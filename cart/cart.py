@@ -58,12 +58,13 @@ class Cart(object):
         product_id = str(product.id)
         # 제품이 cart에 들어있다면 지우는 작업
         if product_id in self.cart:
-            del self.cart[product_id]
+            del(self.cart[product_id])
             self.save()
 
     # 장바구니 비워주는 함수
     def clear(self):
         self.session[settings.CART_ID] = {}
+        self.session.modified = True
 
     # 제품들의 가격과 갯수를 가지고와서 계산해주는 함수
     def get_product_total(self):
