@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "shop",
+    "cart",
     "django.contrib.sites",
     "allauth",
     "allauth.account",
@@ -147,3 +148,5 @@ STATIC_URL = f"http://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 DEFAULT_FILE_STORAGE = "config.s3media.MediaStorage"
+
+CART_ID = "cart items"
