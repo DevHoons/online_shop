@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "shop",
     "cart",
+    "coupon",
     "django.contrib.sites",
     "allauth",
     "allauth.account",
