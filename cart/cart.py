@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
+from coupon.models import Coupon
 
 
 class Cart(object):
@@ -10,6 +11,7 @@ class Cart(object):
         if not cart:
             cart = self.session[settings.CART_ID] = {}
         self.cart = cart
+        self.coupon_id = self.session.get("coupon_id")
 
     def __len__(self):  # 리스트, 딕셔너리에 사용 되는 파이썬 문법, 개수를 셀때 주로 사용
         # cart에 담긴 제품의 갯수를 더해줌
@@ -64,9 +66,26 @@ class Cart(object):
     # 장바구니 비워주는 함수
     def clear(self):
         self.session[settings.CART_ID] = {}
+        self.session["coupon_id"] = None
         self.session.modified = True
 
     # 제품들의 가격과 갯수를 가지고와서 계산해주는 함수
     def get_product_total(self):
         return sum(item["price"] * item["quantity"] for item in self.cart.values())
 
+    @property
+    def coupon(self):
+        if self.coupon_id:
+            return Coupon.objects.get(id=self.coupon_id)
+        return None
+
+    # 쿠폰 적용 후 계산하기 위한 함수
+    def get_discount_total(self):
+        if self.coupon:
+            if self.get_product_total() >= self.coupon.amount:
+                return self.coupon.amount
+        return Decimal(0)
+
+    # 실제 결제해야되는 금액 계산해주는 함수
+    def get_total_price(self):
+        return self.get_product_total() - self.get_discount_total()
