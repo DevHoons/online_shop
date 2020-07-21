@@ -83,7 +83,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "HOST": "onlineshop-1.cmee46srafa3.us-east-2.rds.amazonaws.com",
+        "HOST": "onlineshop.cyw0po1ezdvb.ap-northeast-2.rds.amazonaws.com",
         "NAME": "onlineshop",
         "USER": "admin",
         "PASSWORD": "admin1234",
@@ -130,11 +130,11 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
 
-AWS_ACCESS_KEY_ID = "AKIAYBUR5VOWA4W4YEUZ"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = "AKIAYBUR5VOWO6OIGJMY"
+AWS_SECRET_ACCESS_KEY = "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"
 
 AWS_REGION = "ap-northeast-2"
-AWS_STORAGE_BUCKET_NAME = "onlineshop-test"
+AWS_STORAGE_BUCKET_NAME = "onlineshop-statictest"
 AWS_S3_CUSTOM_DOMAIN = f"s3.{AWS_REGION}.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}"
 
 AWS_S3_FILE_OVERWRITE = False

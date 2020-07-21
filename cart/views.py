@@ -38,4 +38,4 @@ def detail(request):
             initial={"quantity": product["quantity"], "is_update": True}
         )
 
-    return render(request, "detail.html", {"cart": cart})
+    return render(request, "cart/detail.html", {"cart": cart})

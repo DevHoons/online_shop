@@ -58,7 +58,7 @@ class Cart(object):
         product_id = str(product.id)
         # 제품이 cart에 들어있다면 지우는 작업
         if product_id in self.cart:
-            del(self.cart[product_id])
+            del self.cart[product_id]
             self.save()
 
     # 장바구니 비워주는 함수
