@@ -8,7 +8,7 @@ from .models import Coupon
 @require_POST
 def add_coupon(request):
     now = timezone.now()
-    form = AddCouponForm(require_POST)
+    form = AddCouponForm(request.POST)
     if form.is_valid():
         # 안전성을 위해서 cleaned_data에 넣어서 사용해주는 것이 좋음
         code = form.cleaned_data["code"]
