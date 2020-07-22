@@ -144,3 +144,4 @@ media/
 /venv
 .DS_Store
 .vscode
+secretkey.py

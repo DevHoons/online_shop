@@ -148,3 +148,8 @@ STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 DEFAULT_FILE_STORAGE = "config.s3media.MediaStorage"
 
 CART_ID = "cart items"
+
+from secretkey import *
+
+IAMPORT_KEY = MY_IAMPORT_KEY
+IAMPORT_SECRET = MY_IAMPORT_SECRET
